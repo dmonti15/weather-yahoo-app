@@ -1,5 +1,12 @@
-<h1>Your Daily Forecasts</h1>
-<h3>Current Temperature: <%= @temperature %></h3>
+<h1>Your Daily Forecast</h1>
+
+<%= form_tag "/forecasts", method: :get do %>
+City: <input type="text" name="city">
+State: <input type="text" name="state">
+<input type="submit" value="Submit">
+<% end %>
+
+<h3>Current Temperature in <%= @city %>, <%= @state %>: <%= @temperature %></h3>
 <h3>Five-day Forecast:</h3> 
 <% @five_day_forecasts[0..4].each do |five_day_forecast| %>
 <p><%= five_day_forecast["date"] %></p>
